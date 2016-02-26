@@ -16,6 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".engagementApp.EngagementActivity"
+            android:label="@string/title_activity_engagement" >
+        </activity>
+        <activity
+            android:name=".avaliableApp.ui.AvaliableActivity"
+            android:label="@string/title_activity_avaliable" >
+        </activity>
     </application>
 
 </manifest>

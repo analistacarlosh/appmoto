@@ -1,16 +1,45 @@
 package br.com.chfmr.appmotos;
 
-import android.support.v7.app.AppCompatActivity;
+import br.com.chfmr.appmotos.R;
+
+import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import br.com.chfmr.appmotos.avaliableApp.ui.AvaliableActivityFragment;
+import br.com.chfmr.appmotos.commonApp.adapter.MainFragmentPagerAdapter;
+import br.com.chfmr.appmotos.engagementApp.ui.EngagementActivityFragment;
+import br.com.chfmr.appmotos.motorcycleCompany.ui.motocycleCompanyListFragment;
+import br.com.chfmr.appmotos.motorcycleCompany.ui.motocycleCompanyMapsFragment;
+
 public class MainActivity extends AppCompatActivity {
+
+    private ViewPager mViewPager;
+    private Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mViewPager = (ViewPager) findViewById(R.id.view_pager_main);
+
+        if(mViewPager != null){
+            setupViewPager(mViewPager);
+        }
+    }
+
+    private void setupViewPager(ViewPager viewPager){
+        MainFragmentPagerAdapter adapter = new MainFragmentPagerAdapter(getSupportFragmentManager());
+
+        adapter.addFragment(new motocycleCompanyListFragment(), "Moto táxi");
+        adapter.addFragment(new motocycleCompanyMapsFragment(), "Mapa próximos");
+        adapter.addFragment(new EngagementActivityFragment(), "Compartilhe");
+        adapter.addFragment(new AvaliableActivityFragment(), "Avalie");
+        viewPager.setAdapter(adapter);
     }
 
     @Override
@@ -33,5 +62,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        this.mViewPager.setCurrentItem(0);
     }
 }
