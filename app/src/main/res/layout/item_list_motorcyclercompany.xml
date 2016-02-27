@@ -1,0 +1,98 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="#FFFFFF"
+    android:layout_margin="0dp"
+    >
+
+    <TextView
+        android:id="@+id/txtName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome do anunciante"
+        android:textStyle="normal"
+        android:textSize="18dp"
+        android:textColor="@color/color_accent"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="4dp"
+        />
+
+    <TextView
+        android:id="@+id/txtAddress"
+        style="@style/textViewCaption"
+        android:text="Endereço"
+        android:layout_below="@+id/txtName"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="2dp"
+        android:layout_marginBottom="6dp"
+        android:layout_marginTop="4dp"
+        />
+
+    <ImageButton
+        android:id="@+id/btnLigar"
+        android:layout_height="18dp"
+        android:layout_width="18dp"
+        android:layout_below="@+id/txtAddress"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/ic_call_black_18dp"
+        />
+
+    <TextView
+        android:id="@+id/txtTelefoneAdvertiser"
+        style="@style/textViewCaption"
+        android:text="(11) 97230-5233"
+        android:layout_below="@+id/txtAddress"
+        android:layout_toRightOf="@+id/btnLigar"
+        android:layout_marginLeft="2dp"
+        />
+
+    <ImageButton
+        android:id="@+id/btnEmail"
+        android:layout_height="18dp"
+        android:layout_width="18dp"
+        android:background="@drawable/ic_mail_black_18dp"
+        android:layout_below="@+id/txtAddress"
+        android:layout_toRightOf="@+id/txtTelefoneAdvertiser"
+        android:layout_marginLeft="10dp"
+        />
+
+    <TextView
+        android:id="@+id/labelEmailAdvertiser"
+        style="@style/textViewCaption"
+        android:text="E-mail"
+        android:layout_below="@+id/txtAddress"
+        android:layout_toRightOf="@+id/btnEmail"
+        android:layout_marginLeft="2dp"
+        />
+
+    <ImageButton
+        android:id="@+id/btnLocation"
+        android:layout_height="18dp"
+        android:layout_width="18dp"
+        android:background="@drawable/ic_place_black_18dp"
+        android:layout_below="@+id/txtAddress"
+        android:layout_toRightOf="@+id/labelEmailAdvertiser"
+        android:layout_marginLeft="10dp"
+        />
+
+    <TextView
+        android:id="@+id/labelMapsAdvertiser"
+        style="@style/textViewCaption"
+        android:text="Como chegar"
+        android:layout_below="@+id/txtAddress"
+        android:layout_toRightOf="@+id/btnLocation"
+        android:textColor="@color/color_primary_selected"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/chevron_right"
+        android:src="@drawable/chevron_right"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="2dp"
+        />
+
+</RelativeLayout>

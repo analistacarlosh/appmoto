@@ -37,7 +37,7 @@ public class MotorcyclerCompany implements Serializable {
     public String email;
 
     public static final String ENVIROMENT_URL = "http://decasamento.online/";
-    public static final String ADVERTISER_URL_JSON = ENVIROMENT_URL + "food-category/advertiser";
+    public static final String ADVERTISER_URL_JSON = ENVIROMENT_URL + "food-category/motocyrcler-company";
     public static String OBJECT_JSON_MOTO_COMPANY = "motoCompany";
 
     public MotorcyclerCompany(Integer idMotoCompany,

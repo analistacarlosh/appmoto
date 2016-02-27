@@ -1,0 +1,5 @@
+<resources>
+    <style name="labelCaption" parent="@style/textViewCaption">
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>
