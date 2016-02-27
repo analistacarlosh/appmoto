@@ -1,9 +1,8 @@
 package br.com.chfmr.appmotos;
 
-import br.com.chfmr.appmotos.R;
-
 import android.content.Context;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -25,11 +24,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mViewPager = (ViewPager) findViewById(R.id.view_pager_main);
-
-        if(mViewPager != null){
-            setupViewPager(mViewPager);
+        // Get the ViewPager and set it' PagerAdapter
+        ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager_main);
+        //viewPager.setAdapter(new SampleFragmentPagerAdapter(getSupportFragmentManager(), MainActivity.this));
+        if(viewPager != null){
+            setupViewPager(viewPager);
         }
+
+        // Give the TabLayout the ViewPager
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs_main);
+        tabLayout.setupWithViewPager(viewPager);
     }
 
     private void setupViewPager(ViewPager viewPager){
@@ -62,11 +66,5 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    protected void onResume(){
-        super.onResume();
-        this.mViewPager.setCurrentItem(0);
     }
 }

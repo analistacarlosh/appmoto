@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_text_primary">#FFFFFF</color>
+    <color name="color_text_secundary">#000000</color>
+    <color name="color_primary">#FFC107</color>
+    <color name="color_primary_dark">#FFA000</color>
+    <color name="color_accent">#FFC107</color>
+
+    <color name="color_primary_selected">#9a9a9a</color>
+    <color name="color_accent_dark">#D32F2F</color>
+    <color name="color_accent_selected">#FFFFFF</color>
+
+
+
+</resources>
