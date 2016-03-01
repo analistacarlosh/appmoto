@@ -48,9 +48,9 @@
         />
 
     <ImageButton
-        android:id="@+id/btnEmail"
-        android:layout_height="18dp"
-        android:layout_width="18dp"
+        android:id="@+id/btnEmailMotocycleCompany"
+        android:layout_height="30dp"
+        android:layout_width="30dp"
         android:background="@drawable/ic_mail_black_18dp"
         android:layout_below="@+id/txtAddress"
         android:layout_toRightOf="@+id/txtTelefoneAdvertiser"
@@ -62,7 +62,7 @@
         style="@style/textViewCaption"
         android:text="E-mail"
         android:layout_below="@+id/txtAddress"
-        android:layout_toRightOf="@+id/btnEmail"
+        android:layout_toRightOf="@+id/btnEmailMotocycleCompany"
         android:layout_marginLeft="2dp"
         />
 
