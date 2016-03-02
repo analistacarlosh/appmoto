@@ -25,7 +25,9 @@ import br.com.chfmr.appmotos.motorcycleCompany.model.MotorcyclerCompany;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class motocycleCompanyListFragment extends Fragment {
+public class motocycleCompanyListFragment extends Fragment
+        implements MotorcycleCompanyAdapter.onClickInListener,
+        MotorcycleCompanyAdapter.onClickInListenerBtnPhone{
 
     private String TAG = motocycleCompanyListFragment.class.getSimpleName();
     RecyclerView mRecyclerMotocyclerCompanyView;
@@ -35,7 +37,6 @@ public class motocycleCompanyListFragment extends Fragment {
     List<MotorcyclerCompany> listMotorcyclerCompany;
     private  ListMotorcyclerCompanyTask mListMotorcyclerCompanyTask;
     boolean mIsRunning;
-    private String friendlyUrl;
 
     TextView mTextMessage;
     ProgressBar mProgressBar;
@@ -57,7 +58,16 @@ public class motocycleCompanyListFragment extends Fragment {
         mRecyclerMotocyclerCompanyView = (RecyclerView) layout.findViewById(R.id.recyclerViewListAdvertiser);
         mRecyclerMotocyclerCompanyView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this.getActivity());
+        //mRecyclerMotocyclerCompanyView.addOnChildAttachStateChangeListener();
 
+        /*recyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(context, new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override public void onItemClick(View view, int position) {
+                        // do whatever
+                    }
+                })
+        );
+        */
         return layout;
     }
 
@@ -123,6 +133,28 @@ public class motocycleCompanyListFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onClickInListener(View v, int position, MotorcyclerCompany motorcyclerCompany) {
+
+        Log.i(TAG, "onClickInCategory - position:" + position);
+
+        /*
+        friendlyUrl = listCategory.get(position).friendlyUrl;
+        Intent intent = new Intent(this.getActivity(), ListAdvertiserActivity.class);
+        intent.putExtra("friendlyUrl", friendlyUrl);
+        startActivity(intent);
+        */
+
+        Toast.makeText(motocycleCompanyListFragment.this.getActivity(), "onClickInListener-" + position, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onClickInListenerBtnPhone(View v, int position, MotorcyclerCompany motorcyclerCompany) {
+
+        //Log.i(TAG, "onClickInListenerBtnPhone - position:" + position);
+        Toast.makeText(motocycleCompanyListFragment.this.getActivity(), "onClickInListenerBtnPhone-" + motorcyclerCompany.phone, Toast.LENGTH_LONG).show();
+    }
+
     class ListMotorcyclerCompanyTask extends AsyncTask<String, Void, List<MotorcyclerCompany>> {
 
         @Override
@@ -143,7 +175,9 @@ public class motocycleCompanyListFragment extends Fragment {
             Log.i("APPGUIA", "categoryList - " + listMotorcyclerCompany);
             if(listMotorcyclerCompany != null){
                 mAdapter = new MotorcycleCompanyAdapter(motocycleCompanyListFragment.this, listMotorcyclerCompany);
-                //mAdapter.setOnClickInCategoryListener(ListAdvertiserActivityFragment.this);
+                mAdapter.setOnClickInListenerMotocycleCompany(motocycleCompanyListFragment.this);
+                mAdapter.setOnClickInListenerMotocycleCompanyBtnPhone(motocycleCompanyListFragment.this);
+
                 mRecyclerMotocyclerCompanyView.setAdapter(mAdapter);
             } else {
                 Toast.makeText(motocycleCompanyListFragment.this.getActivity(), "Não foi possível objter a lista de Moto-táxi", Toast.LENGTH_LONG).show();
