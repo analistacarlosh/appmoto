@@ -60,15 +60,11 @@ public class MotorcycleCompanyAdapter extends RecyclerView.Adapter<MotorcycleCom
               @Override
               public void onClick(View view) {
                   if (mListenerBtnPhone != null) {
-                      MotocyclerCompanyViewHolder vh = (MotocyclerCompanyViewHolder) view.getTag();
-                      int position = vh.getAdapterPosition();
-                      mListenerBtnPhone.onClickInListenerBtnPhone(view, position, mMotocyclerCompany.get(position));
+                       int positionV = (int) view.getTag();
+                      mListenerBtnPhone.onClickInListenerBtnPhone(view, positionV, mMotocyclerCompany.get(positionV));
                   }
               }
           });
-
-        //imageButtonCompany = (ImageButton)parent.findViewById(R.id.btnEmailMotocycleCompany);
-        //imageButtonCompany.setOnClickListener(this);
 
         return vh;
     }
@@ -86,6 +82,8 @@ public class MotorcycleCompanyAdapter extends RecyclerView.Adapter<MotorcycleCom
         holder.txtName.setText(advertiser.nameMotoCompany);
         holder.txtAddress.setText(advertiser.address + " - " + advertiser.addressDistrict);
         holder.txtTelefone.setText(advertiser.phone);
+        holder.imageButtonMotocycleCompany.setTag(position);
+        //holder.btnNxt.setTag(position)
 
        // holder.imageButtonMotocycleCompany.setOnClickListener(this);
         /*holder.imageButtonMotocycleCompany.setOnClickListener(new View.OnClickListener() {
@@ -106,7 +104,6 @@ public class MotorcycleCompanyAdapter extends RecyclerView.Adapter<MotorcycleCom
 
     public static class MotocyclerCompanyViewHolder extends RecyclerView.ViewHolder
     {
-
        public TextView txtName;
        public TextView txtAddress;
        public TextView txtTelefone;
@@ -121,19 +118,6 @@ public class MotorcycleCompanyAdapter extends RecyclerView.Adapter<MotorcycleCom
            txtTelefone = (TextView)parent.findViewById(R.id.txtTelefoneAdvertiser);
            imageButtonMotocycleCompany = (ImageButton)parent.findViewById(R.id.btnEmailMotocycleCompany);
 
-          // imageButtonMotocycleCompany.setOnClickListener(this);
-           //txtTelefone.setOnClickListener(this);
        }
-
-     /*  public void setItem(String item) {
-            Log.d("APP", "setItem " + getLayoutPosition() + item);
-        }
-
-        @Override
-        public void onClick(View view) {
-            int postiID = getLayoutPosition();
-            Log.d("APP", "MotocyclerCompanyViewHolder-onClick " + getLayoutPosition());
-        }
-        */
     }
 }

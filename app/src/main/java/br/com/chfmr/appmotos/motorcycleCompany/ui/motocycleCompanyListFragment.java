@@ -37,7 +37,6 @@ public class motocycleCompanyListFragment extends Fragment
     List<MotorcyclerCompany> listMotorcyclerCompany;
     private  ListMotorcyclerCompanyTask mListMotorcyclerCompanyTask;
     boolean mIsRunning;
-    private String friendlyUrl;
 
     TextView mTextMessage;
     ProgressBar mProgressBar;
@@ -137,31 +136,23 @@ public class motocycleCompanyListFragment extends Fragment
     @Override
     public void onClickInListener(View v, int position, MotorcyclerCompany motorcyclerCompany) {
 
-        Log.i("APPGUIA", "onClickInCategory - position:" + position);
+        Log.i(TAG, "onClickInCategory - position:" + position);
 
-        /*friendlyUrl = listCategory.get(position).friendlyUrl;
-
+        /*
+        friendlyUrl = listCategory.get(position).friendlyUrl;
         Intent intent = new Intent(this.getActivity(), ListAdvertiserActivity.class);
         intent.putExtra("friendlyUrl", friendlyUrl);
         startActivity(intent);
-*/
-        // avaliableAppActivity
+        */
 
+        Toast.makeText(motocycleCompanyListFragment.this.getActivity(), "onClickInListener-" + position, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onClickInListenerBtnPhone(View v, int position, MotorcyclerCompany motorcyclerCompany) {
 
-        Log.i("APPGUIA", "onClickInListenerBtnPhone - position:" + position);
-
-        /*friendlyUrl = listCategory.get(position).friendlyUrl;
-
-        Intent intent = new Intent(this.getActivity(), ListAdvertiserActivity.class);
-        intent.putExtra("friendlyUrl", friendlyUrl);
-        startActivity(intent);
-*/
-        // avaliableAppActivity
-
+        //Log.i(TAG, "onClickInListenerBtnPhone - position:" + position);
+        Toast.makeText(motocycleCompanyListFragment.this.getActivity(), "onClickInListenerBtnPhone-" + motorcyclerCompany.phone, Toast.LENGTH_LONG).show();
     }
 
     class ListMotorcyclerCompanyTask extends AsyncTask<String, Void, List<MotorcyclerCompany>> {
@@ -185,6 +176,8 @@ public class motocycleCompanyListFragment extends Fragment
             if(listMotorcyclerCompany != null){
                 mAdapter = new MotorcycleCompanyAdapter(motocycleCompanyListFragment.this, listMotorcyclerCompany);
                 mAdapter.setOnClickInListenerMotocycleCompany(motocycleCompanyListFragment.this);
+                mAdapter.setOnClickInListenerMotocycleCompanyBtnPhone(motocycleCompanyListFragment.this);
+
                 mRecyclerMotocyclerCompanyView.setAdapter(mAdapter);
             } else {
                 Toast.makeText(motocycleCompanyListFragment.this.getActivity(), "Não foi possível objter a lista de Moto-táxi", Toast.LENGTH_LONG).show();
