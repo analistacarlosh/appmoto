@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.List;
@@ -55,8 +55,8 @@ public class MotorcycleCompanyAdapter extends RecyclerView.Adapter<MotorcycleCom
             }
         });
 
-        ImageButton imgBtn = (ImageButton) v.findViewById(R.id.btnEmailMotocycleCompany);
-        imgBtn.setOnClickListener(new View.OnClickListener() {
+        Button btnCallTelPhoneMotorcyclerCompany = (Button) v.findViewById(R.id.btnCallTelPhoneMotorcyclerCompany);
+        btnCallTelPhoneMotorcyclerCompany.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View view) {
                   if (mListenerBtnPhone != null) {
@@ -81,15 +81,15 @@ public class MotorcycleCompanyAdapter extends RecyclerView.Adapter<MotorcycleCom
         // Picasso.with(mContext).load(category.img).into(holder.imgCategory);
         holder.txtName.setText(advertiser.nameMotoCompany);
         holder.txtAddress.setText(advertiser.address + " - " + advertiser.addressDistrict);
-        holder.txtTelefone.setText(advertiser.phone);
-        holder.imageButtonMotocycleCompany.setTag(position);
+        //holder.txtTelefone.setText(advertiser.phone);
+        holder.btnCallTelPhoneMotorcyclerCompany.setTag(position);
         //holder.btnNxt.setTag(position)
 
        // holder.imageButtonMotocycleCompany.setOnClickListener(this);
         /*holder.imageButtonMotocycleCompany.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 /// button click event
-                Log.i("APPGUIA", "onClickInCategory - position:");
+                Log.i("APP", "onClickInCategory - position:");
             }
         });*/
     }
@@ -106,8 +106,7 @@ public class MotorcycleCompanyAdapter extends RecyclerView.Adapter<MotorcycleCom
     {
        public TextView txtName;
        public TextView txtAddress;
-       public TextView txtTelefone;
-        public ImageButton imageButtonMotocycleCompany;
+        public Button btnCallTelPhoneMotorcyclerCompany;
 
        // Setar os atributos da view que recebera das class
        public MotocyclerCompanyViewHolder(View parent){
@@ -115,8 +114,7 @@ public class MotorcycleCompanyAdapter extends RecyclerView.Adapter<MotorcycleCom
             // receber
            txtName = (TextView)parent.findViewById(R.id.txtName);
            txtAddress = (TextView)parent.findViewById(R.id.txtAddress);
-           txtTelefone = (TextView)parent.findViewById(R.id.txtTelefoneAdvertiser);
-           imageButtonMotocycleCompany = (ImageButton)parent.findViewById(R.id.btnEmailMotocycleCompany);
+           btnCallTelPhoneMotorcyclerCompany = (Button)parent.findViewById(R.id.btnCallTelPhoneMotorcyclerCompany);
 
        }
     }

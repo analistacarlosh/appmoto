@@ -1,6 +1,8 @@
 package br.com.chfmr.appmotos.motorcycleCompany.ui;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -151,8 +153,12 @@ public class motocycleCompanyListFragment extends Fragment
     @Override
     public void onClickInListenerBtnPhone(View v, int position, MotorcyclerCompany motorcyclerCompany) {
 
+        Uri uri = Uri.parse("tel:" + motorcyclerCompany.phone);
+        Intent intent = new Intent(Intent.ACTION_DIAL, uri);
+        startActivity(intent);
+
         //Log.i(TAG, "onClickInListenerBtnPhone - position:" + position);
-        Toast.makeText(motocycleCompanyListFragment.this.getActivity(), "onClickInListenerBtnPhone-" + motorcyclerCompany.phone, Toast.LENGTH_LONG).show();
+        //Toast.makeText(motocycleCompanyListFragment.this.getActivity(), "onClickInListenerBtnPhone-" + motorcyclerCompany.phone, Toast.LENGTH_LONG).show();
     }
 
     class ListMotorcyclerCompanyTask extends AsyncTask<String, Void, List<MotorcyclerCompany>> {

@@ -25,4 +25,14 @@
         <item name="textAllCaps">true</item>
     </style>
 
+    <style name="style_btnView_caption" parent="@style/Theme.AppCompat.Light">
+            <item name="android:layout_width">wrap_content</item>
+            <item name="android:layout_height">wrap_content</item>
+            <item name="android:paddingLeft">0sp</item>
+            <item name="android:paddingRight">0sp</item>
+            <item name="android:textColor">@color/color_primary_selected</item>
+            <item name="android:textSize">12dp</item>
+            <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>
