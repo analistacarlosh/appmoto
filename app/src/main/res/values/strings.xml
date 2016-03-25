@@ -11,4 +11,6 @@
 
     <string name="label_btn_maps">Onde no Mapa</string>
     <string name="label_btn_phone">Ligar</string>
+    <string name="title_activity_motocycle_company_location_maps">Local da Coperativa de Moto-Táxi</string>
+
 </resources>

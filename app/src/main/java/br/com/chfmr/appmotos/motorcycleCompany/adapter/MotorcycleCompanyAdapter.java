@@ -23,6 +23,7 @@ public class MotorcycleCompanyAdapter extends RecyclerView.Adapter<MotorcycleCom
     public List<MotorcyclerCompany> mMotocyclerCompany;
     private onClickInListener mListener;
     private onClickInListenerBtnPhone mListenerBtnPhone;
+    private onClickInListenerBtnLocationMaps mListenerBtnLocationMaps;
 
     public MotorcycleCompanyAdapter(motocycleCompanyListFragment ctx, List<MotorcyclerCompany> motorcyclerCompanies){
         mContext    = ctx.getActivity();
@@ -35,6 +36,10 @@ public class MotorcycleCompanyAdapter extends RecyclerView.Adapter<MotorcycleCom
 
     public void setOnClickInListenerMotocycleCompanyBtnPhone(onClickInListenerBtnPhone l){
         mListenerBtnPhone = l;
+    }
+
+    public void setOnClickInListenerBtnLocationMaps(onClickInListenerBtnLocationMaps l){
+        mListenerBtnLocationMaps = l;
     }
 
     @Override
@@ -66,6 +71,17 @@ public class MotorcycleCompanyAdapter extends RecyclerView.Adapter<MotorcycleCom
               }
           });
 
+        Button btnOpenMapsLocationMotoCyclerCompany = (Button) v.findViewById(R.id.btnMapsLocationMotoCyclerCompany);
+        btnOpenMapsLocationMotoCyclerCompany.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mListenerBtnLocationMaps != null) {
+                    int positionV = (int) view.getTag();
+                    mListenerBtnLocationMaps.onClickInListenerBtnLocationMaps(view, positionV, mMotocyclerCompany.get(positionV));
+                }
+            }
+        });
+
         return vh;
     }
 
@@ -83,6 +99,7 @@ public class MotorcycleCompanyAdapter extends RecyclerView.Adapter<MotorcycleCom
         holder.txtAddress.setText(advertiser.address + " - " + advertiser.addressDistrict);
         //holder.txtTelefone.setText(advertiser.phone);
         holder.btnCallTelPhoneMotorcyclerCompany.setTag(position);
+        holder.btnMapsLocationMotoCyclerCompany.setTag(position);
         //holder.btnNxt.setTag(position)
 
        // holder.imageButtonMotocycleCompany.setOnClickListener(this);
@@ -102,11 +119,16 @@ public class MotorcycleCompanyAdapter extends RecyclerView.Adapter<MotorcycleCom
         void onClickInListenerBtnPhone(View v, int position, MotorcyclerCompany motorcyclerCompany);
     }
 
+    public interface onClickInListenerBtnLocationMaps {
+        void onClickInListenerBtnLocationMaps(View v, int position, MotorcyclerCompany motorcyclerCompany);
+    }
+
     public static class MotocyclerCompanyViewHolder extends RecyclerView.ViewHolder
     {
        public TextView txtName;
        public TextView txtAddress;
         public Button btnCallTelPhoneMotorcyclerCompany;
+        public Button btnMapsLocationMotoCyclerCompany;
 
        // Setar os atributos da view que recebera das class
        public MotocyclerCompanyViewHolder(View parent){
@@ -115,7 +137,7 @@ public class MotorcycleCompanyAdapter extends RecyclerView.Adapter<MotorcycleCom
            txtName = (TextView)parent.findViewById(R.id.txtName);
            txtAddress = (TextView)parent.findViewById(R.id.txtAddress);
            btnCallTelPhoneMotorcyclerCompany = (Button)parent.findViewById(R.id.btnCallTelPhoneMotorcyclerCompany);
-
+           btnMapsLocationMotoCyclerCompany = (Button)parent.findViewById(R.id.btnMapsLocationMotoCyclerCompany);
        }
     }
 }

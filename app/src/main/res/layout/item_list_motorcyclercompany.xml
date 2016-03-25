@@ -80,7 +80,7 @@
         />
 
     <Button
-        android:id="@+id/labelMapsAdvertiser"
+        android:id="@+id/btnMapsLocationMotoCyclerCompany"
         style="@style/style_btnView_caption"
         android:text="@string/label_btn_maps"
         android:layout_below="@+id/txtAddress"

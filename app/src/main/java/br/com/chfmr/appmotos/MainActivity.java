@@ -39,8 +39,9 @@ public class MainActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager){
         MainFragmentPagerAdapter adapter = new MainFragmentPagerAdapter(getSupportFragmentManager());
 
-        adapter.addFragment(new motocycleCompanyListFragment(), "Moto táxi");
-        adapter.addFragment(new motocycleCompanyMapsFragment(), "Mapa próximos");
+        adapter.addFragment(new motocycleCompanyListFragment(), "Cooperativas");
+        //adapter.addFragment(new motocycleCompanyMapsFragment(), "Motos Táxistas");
+        adapter.addFragment(new motocycleCompanyMapsFragment(), "Motos Táxistas");
         adapter.addFragment(new EngagementActivityFragment(), "Compartilhe");
         adapter.addFragment(new AvaliableActivityFragment(), "Avalie");
         viewPager.setAdapter(adapter);
