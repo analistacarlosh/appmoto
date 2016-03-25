@@ -29,8 +29,7 @@ import br.com.chfmr.appmotos.motorcycleCompany.model.MotorcyclerCompany;
  */
 public class motocycleCompanyListFragment extends Fragment
         implements MotorcycleCompanyAdapter.onClickInListener,
-        MotorcycleCompanyAdapter.onClickInListenerBtnPhone,
-        MotorcycleCompanyAdapter.onClickInListenerBtnLocationMaps {
+        MotorcycleCompanyAdapter.onClickInListenerBtnPhone {
 
     private String TAG = motocycleCompanyListFragment.class.getSimpleName();
     RecyclerView mRecyclerMotocyclerCompanyView;
@@ -160,14 +159,14 @@ public class motocycleCompanyListFragment extends Fragment
         //Toast.makeText(motocycleCompanyListFragment.this.getActivity(), "onClickInListenerBtnPhone-" + motorcyclerCompany.phone, Toast.LENGTH_LONG).show();
     }
 
-    @Override
+    /*@Override
     public void onClickInListenerBtnLocationMaps(View v, int position, MotorcyclerCompany motorcyclerCompany) {
 
         Intent itBtnLocationMaps = new Intent(this.getActivity(), motocycleCompanyLocationMaps.class);
         startActivity(itBtnLocationMaps);
 
         //Toast.makeText(motocycleCompanyListFragment.this.getActivity(), "onClickInListenerBtnPhone-" + motorcyclerCompany.phone, Toast.LENGTH_LONG).show();
-    }
+    }*/
 
     class ListMotorcyclerCompanyTask extends AsyncTask<String, Void, List<MotorcyclerCompany>> {
 
@@ -191,7 +190,7 @@ public class motocycleCompanyListFragment extends Fragment
                 mAdapter = new MotorcycleCompanyAdapter(motocycleCompanyListFragment.this, listMotorcyclerCompany);
                 mAdapter.setOnClickInListenerMotocycleCompany(motocycleCompanyListFragment.this);
                 mAdapter.setOnClickInListenerMotocycleCompanyBtnPhone(motocycleCompanyListFragment.this);
-                mAdapter.setOnClickInListenerBtnLocationMaps(motocycleCompanyListFragment.this);
+                //mAdapter.setOnClickInListenerBtnLocationMaps(motocycleCompanyListFragment.this);
 
                 mRecyclerMotocyclerCompanyView.setAdapter(mAdapter);
             } else {

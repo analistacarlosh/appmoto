@@ -10,10 +10,10 @@
         android:id="@+id/txtName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
+        android:text="Teste Moto"
         android:textStyle="normal"
-        android:textSize="18dp"
-        android:textColor="@color/color_accent"
+        android:textSize="16dp"
+        android:textColor="@color/color_text_secundary"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="4dp"
         />
@@ -21,7 +21,8 @@
     <TextView
         android:id="@+id/txtAddress"
         style="@style/textViewCaption"
-        android:text=""
+        android:text="txtAddress"
+        android:textSize="14dp"
         android:layout_below="@+id/txtName"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="2dp"
@@ -29,26 +30,51 @@
         android:layout_marginTop="4dp"
         />
 
-    <ImageButton
-        android:id="@+id/btnLigar"
-        android:layout_height="30dp"
-        android:layout_width="30dp"
-        android:layout_below="@+id/txtAddress"
-        android:layout_alignParentLeft="true"
-        android:background="@drawable/ic_call_black_18dp"
-        />
+   <ImageButton
+    android:id="@+id/btnLigar"
+    android:layout_height="30dp"
+    android:layout_width="30dp"
+       android:layout_marginTop="4dp"
+    android:layout_below="@+id/txtAddress"
+    android:layout_alignParentLeft="true"
+    android:background="@drawable/ic_call_black_18dp"
+    />
 
     <Button
         android:id="@+id/btnCallTelPhoneMotorcyclerCompany"
         style="@style/style_btnView_caption"
+        android:layout_toRightOf="@+id/btnLigar"
         android:text="@string/label_btn_phone"
         android:layout_below="@+id/txtAddress"
-        android:layout_toRightOf="@+id/btnLigar"
         android:layout_marginLeft="2dp"
         android:textColor="@color/color_text_secundary"
         />
 
-<!--
+    <TextView
+        android:id="@+id/txtOpenDays"
+        style="@style/textViewCaption"
+        android:text="Segunda à Sexta"
+        android:textSize="14dp"
+        android:layout_below="@+id/txtAddress"
+        android:layout_toRightOf="@+id/btnCallTelPhoneMotorcyclerCompany"
+        android:layout_marginLeft="6dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="6dp"
+        />
+
+    <TextView
+        android:id="@+id/txtOpenTime"
+        style="@style/textViewCaption"
+        android:text="Das 08:00 h às 19:00 h"
+        android:textSize="14dp"
+        android:layout_below="@+id/txtOpenDays"
+        android:layout_toRightOf="@+id/btnCallTelPhoneMotorcyclerCompany"
+        android:layout_marginLeft="6dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginTop="0dp"
+        />
+
+    <!--
     <ImageButton
         android:id="@+id/btnEmailMotocycleCompany"
         android:layout_height="30dp"
@@ -69,6 +95,7 @@
         />
 -->
 
+    <!--
     <ImageButton
         android:id="@+id/btnLocation"
         android:layout_height="30dp"
@@ -88,6 +115,7 @@
         android:textColor="@color/color_text_secundary"
         android:padding="14dp"
         />
+    -->
 
     <ImageView
         android:layout_width="wrap_content"
