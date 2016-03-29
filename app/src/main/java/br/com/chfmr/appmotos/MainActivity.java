@@ -12,7 +12,7 @@ import br.com.chfmr.appmotos.avaliableApp.ui.AvaliableActivityFragment;
 import br.com.chfmr.appmotos.commonApp.adapter.MainFragmentPagerAdapter;
 import br.com.chfmr.appmotos.engagementApp.ui.EngagementActivityFragment;
 import br.com.chfmr.appmotos.motorcycleCompany.ui.motocycleCompanyListFragment;
-import br.com.chfmr.appmotos.motorcycleCompany.ui.motocycleCompanyMapsFragment;
+import br.com.chfmr.appmotos.motorcycleProfessional.ui.MotocycleProfessionalListFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
         MainFragmentPagerAdapter adapter = new MainFragmentPagerAdapter(getSupportFragmentManager());
 
         adapter.addFragment(new motocycleCompanyListFragment(), "Cooperativas");
-        //adapter.addFragment(new motocycleCompanyMapsFragment(), "Motos Táxistas");
-        adapter.addFragment(new motocycleCompanyMapsFragment(), "Motos Táxistas");
+        adapter.addFragment(new MotocycleProfessionalListFragment(), "Moto Táxistas");
+        //adapter.addFragment(new motocycleCompanyMapsFragment(), "Moto Táxistas");
         adapter.addFragment(new EngagementActivityFragment(), "Compartilhe");
         adapter.addFragment(new AvaliableActivityFragment(), "Avalie");
         viewPager.setAdapter(adapter);

@@ -1,0 +1,12 @@
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="2dp"
+    card_view:cardCornerRadius="3dp"
+    android:background="#ffffff"
+    >
+    <include layout="@layout/item_list_motorcyclercompany"/>
+</android.support.v7.widget.CardView>
